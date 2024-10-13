@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2 class="top">Quera Post</h2>
+    
+    <% for(post of data) { %>
+        
+        <div class="center">
+        <h2 class="user"> @<%= post.username %></h2> 
+        <p><%= post.content %></p>
+
+        <a href="http://localhost:8080/post/<%= post.id %>">See in detail</a>
+&nbsp; &nbsp;&nbsp; &nbsp;
+<a href="http://localhost:8080/post/<%= post.id %>/edit">Edit</a>
+
+<br>
+<form action="/post/<%= post.id %>/del?_method=DELETE" method="post">
+    <button>delete</button>
+    
+</form>
+</div>
+         <% } %>  
+    <br>
+    <br>
+    <a href="http://localhost:8080/post/new">create New Post</a>
+        
+
+</body>
+</html>
